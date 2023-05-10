@@ -1,0 +1,217 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="header">
+                        <h2 class="title">Truck Hire Memo</h2>
+                    </div>
+                    <div class="content">
+                        <form #f="ngForm">
+                            <div class="row">
+                                <mat-form-field class="col-lg-3 col-sm-12">
+                                    <mat-label>Truck No.</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                        <mat-option value="option4">
+                                            <button mat-raised-button (click)="truckNPop()">Add
+                                        </button></mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-3 col-sm-12">
+                                    <mat-label>THM no</mat-label>
+                                    <input matInput disabled>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-3 col-sm-12">
+                                    <mat-label>Docket NO/challan No</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-3 col-sm-12 ">
+                                    <mat-label>Date</mat-label>
+                                    <input matInput [matDatepicker]="picker" name="date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"
+                                        style="color: black;">
+                                        <mat-icon>date_range</mat-icon>
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Docket By/Challan By</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                        <mat-option value="option4" >
+                                            <button (click)="docketChallanPop()" mat-raised-button>Add
+                                        </button></mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Agent / Broker</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                        <mat-option value="option4" >
+                                            <button (click)="agentBrokerPop()" mat-raised-button>Add
+                                        </button></mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>From Station</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>To Station</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Consignor</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                        <mat-option >
+                                            <button (click)="consingorPop()" mat-raised-button>Add</button>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Consingee</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                        <mat-option ><button (click)="consigneePop()" mat-raised-button>Add</button>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Item</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                        <mat-option ><button (click)="itemAddPop()" mat-raised-button>Add</button>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Packaging</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                        <mat-option ><button (click)="pakageAddPop()" mat-raised-button>Add</button>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>WT.</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Qty.</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Charging Method</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="Fixed">Fixed</mat-option>
+                                        <mat-option value="WT.">WT.</mat-option>
+                                        <mat-option value="Qty.">Qty.</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Rate x Chg Method</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Other Charges</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Remark</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Total TF </mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>TDS Less</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Adv Freight</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Balance TF</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Other Charges Paid</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Dala/Munchana paid By Truck</mat-label>
+                                    <input matInput >
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-6 col-sm-12" style="height: 89px;">
+                                    <mat-label>Remark</mat-label>
+                                    <textarea matInput ></textarea>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Due To</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="CR">CR</mat-option>
+                                        <mat-option value="CE">CE</mat-option>
+                                        <mat-option value="Transporter">Transporter</mat-option>
+                                        <mat-option value="Agent/Broker">Agent/Broker</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <div class="row">
+                                    <button mat-raised-button class="col-6"
+                                    style="background: rgb(247, 152, 152);margin-right: 25px;">
+                                    <span>Save</span></button>
+                                    <button mat-raised-button class="col-6"
+                                    style="background:rgb(247, 152, 152);margin-right: 25px;">
+                                    <span>Delete</span></button>
+                                    <button mat-raised-button class="col-6"
+                                    style="background:rgb(247, 152, 152);">
+                                    <span>Update</span></button>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

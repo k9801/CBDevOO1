@@ -1,0 +1,72 @@
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+     background-color: white; 
+}
+.mat-h2, .mat-headline-6, .mat-typography .mat-h2, .mat-typography .mat-headline-6, .mat-typography h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 32px;
+    font-family: Roboto, sans-serif;
+    letter-spacing: .0125em;
+    margin: 0px 0 3px;
+}
+.mat-table {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    display: block !important;
+    height: 300px;
+  }
+  
+  table {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+  
+  h3,
+  .table1 th {
+    font-weight: normal;
+    position: relative;
+  }
+  
+  .mat-cell,
+  .mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 0px 10px;
+    line-break: unset;
+    width: 25%;
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+  
+  td {
+    text-align: left;
+  }
+  
+  .mat-raised-button {
+    background: rgb(252, 67, 67);
+  }
+  
+  
+  .mat-btn {
+    justify-content: center;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+  
+  .addBtn {
+    color: black;
+  }
+  
+  #removeFocus:focus {
+    background: white;
+    outline: 0cm;
+  }
+  
+  .submitBtn {
+    color: black;
+  }

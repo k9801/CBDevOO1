@@ -1,0 +1,212 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="header">
+                        <h2 class="title">Trip</h2>
+                    </div>
+                    <div class="content">
+                        <form #f="ngForm">
+                            <div class="row">
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label>Vehicle No.</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-5 col-sm-12">
+                                    <mat-label></mat-label>
+                                    <mat-select #select2>
+                                        <mat-option value="option1" selected>ALL</mat-option>
+                                        <mat-option value="option2">Freight memo</mat-option>
+                                        <mat-option value="option3">FRS</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-checkbox class="col-lg-2 col-sm-12" (click)="resetSelection(select2)">
+                                    <label for="reset">Empty</label>
+                                </mat-checkbox>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>trip no</mat-label>
+                                    <input matInput disabled>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12 ">
+                                    <mat-label>Driver name</mat-label>
+                                    <mat-select #select2>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>Enter a date range</mat-label>
+                                    <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                                        <input matStartDate formControlName="start" placeholder="Start date">
+                                        <input matEndDate formControlName="end" placeholder="End date">
+                                    </mat-date-range-input>
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-date-range-picker #picker></mat-date-range-picker>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>From station</mat-label>
+                                    <mat-select #select1>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>to station</mat-label>
+                                    <mat-select #select2>
+                                        <mat-option value="option1">Option 1</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="row">
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>odo star</mat-label>
+                                    <input matInput #input1 (click)="onInput1and2Change(input3)">
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>odo end</mat-label>
+                                    <input matInput #input2 name="input1" (click)="onInput1and2Change(input3)">
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-6 col-sm-12">
+                                    <mat-label>est. KMs</mat-label>
+                                    <input matInput #input3 (click)="onInput3Change(input1,input2)">
+                                </mat-form-field>
+                            </div>
+                            <hr>
+                            <button mat-raised-button (click)="openDialog()" style="background-color: #009688;">
+                                <h4>Add Expense</h4>
+                            </button>
+                            <hr>
+                            <a mat-raised-button class="addRowBtn" (click)="addRow()" style="float: right;">
+                                <mat-icon>add</mat-icon></a>
+                            <h2>Expenses</h2>
+                            <hr>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12">
+                                    <div class="mat-elevation-z8">
+                                        <div class="table-responsive" style="height:300px;overflow-x: scroll;
+                                        overflow-y: scroll;">
+                                            <table class="table table-bordered table-striped table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        
+                                                        <td scope="col">
+                                                            SNo.
+                                                        </td>
+                                                        <td scope="col">
+                                                            Date
+                                                        </td>
+                                                        <td scope="col">
+                                                            Expense
+                                                        </td>
+                                                        <td scope="col">
+                                                            Amount
+                                                        </td>
+                                                        <td scope="col">
+                                                            Remark
+                                                        </td>
+                                                        <td>
+                                                            &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let dynamic of formData?.tripTransTbl;let i =index">
+                                                        
+                                                        <td>
+                                                            {{i+1}}
+                                                        </td>
+                                                        <td>
+                                                            <mat-form-field>
+                                                                <input matInput [matDatepicker]="picker" name="date"
+                                                                    style="height: 40px;">
+                                                                <mat-datepicker-toggle matSuffix [for]="picker"
+                                                                    style="color: black;">
+                                                                    <mat-icon>date_range</mat-icon>
+                                                                </mat-datepicker-toggle>
+                                                                <mat-datepicker #picker></mat-datepicker>
+                                                            </mat-form-field>
+                                                        </td>
+
+                                                        <td>
+                                                            <input class="w100" type="text" name="Expense"
+                                                                style="height: 40px;" (click)="opendialogbox()" />
+                                                        </td>
+                                                        <td>
+                                                            <input class="w100" type="text" style="height: 40px;" />
+                                                        </td>
+                                                        <td>
+                                                            <input class="w100" type="text" style="height: 40px;" />
+                                                        </td>
+                                                        <td>
+                                                            <button mat-icon-button type="button" (click)="deleteRow(i)"
+                                                                class="text-primary">
+                                                                <mat-icon>delete</mat-icon>
+                                                            </button>
+                                                            <button mat-icon-button>
+                                                                <mat-icon>edit</mat-icon>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="col-6" style="float: right;">
+                                        <div class="row">
+                                            <mat-form-field class="col-lg-6 col-sm-12">
+                                                <mat-label>Remark</mat-label>
+                                                <textarea matInput></textarea>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <button mat-raised-button class="col-6"
+                                                style="background:rgb(247, 152, 152);margin-right: 25px;">
+                                                <span>Print</span></button>
+                                                <a mat-raised-button class="submitBtn"
+                                                style="background:rgb(247, 152, 152);margin-right: 25px;">
+                                                Add Attachment</a>
+                                                <mat-checkbox color="black" style="margin-right: 25px;">
+                                                    <label style="color: black;" for="Completed">Completed</label>
+                                                </mat-checkbox>
+                                                <mat-checkbox color="black">
+                                                    <label style="color: black;" for="Approved">Approved</label>
+                                                </mat-checkbox>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                                <button mat-raised-button class="col-6"
+                                                style="background: rgb(247, 152, 152);margin-right: 25px;">
+                                                <span>Save</span></button>
+                                                <button mat-raised-button class="col-6"
+                                                style="background:rgb(247, 152, 152);">
+                                                <span>Delete</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

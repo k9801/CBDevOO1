@@ -1,0 +1,40 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-12" style="padding-top: 10px;">
+                <div class="card" >
+                    <div class="header" style="padding-bottom: 15px;">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12">
+                                <h2 class="title"><b>Expenses</b></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-5 col-sm-12">
+                            <mat-select >
+                                <mat-option value="Toll">Toll</mat-option>
+                                <mat-option value="Fuel">Fuel</mat-option>
+                                <mat-option value="food">Food</mat-option>
+                                <mat-option value="Loading / unloading">Loading / unloading</mat-option>
+                                <mat-option value="Challan Exp">Challan Exp</mat-option>
+                                <mat-option value="Maintenance">Maintenance</mat-option>
+                                <mat-option value="Route Tax">Route Tax</mat-option>
+                                <mat-option value="Repair">Repair</mat-option>
+                                <mat-option value="Annual Expenses">Annual Expenses</mat-option>
+                                <mat-option> <button mat-raised-button style="background-color: burlywood;" (click)="AddNewValue()">Add</button></mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <button mat-raised-button style="background-color: #009688;margin-right: 7px;" (click)="AfterSelect()">
+                        <h2>Save</h2>
+                    </button>
+                    <button mat-raised-button mat-dialog-close style="background-color: #009688;float: right;">
+                        <h2>close</h2>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
